@@ -103,7 +103,7 @@ if __name__ == '__main__':
     print("Summary statistics")
     print(json.dumps(dataframe_summary(), indent=4), end='\n\n')
 
-    print("Missing Percentage")
+    print("Missing percentage")
     print(json.dumps(missing_percentage(), indent=4), end='\n\n')
 
     print("Execution time")
