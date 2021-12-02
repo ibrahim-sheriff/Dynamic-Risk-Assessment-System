@@ -26,10 +26,10 @@ Diagnostics Summary
 {
   "execution_time": [
     {
-      "ingest_time_mean": 1.02235771
+      "ingest_time_mean": 1.1779527800000007
     }, 
     {
-      "train_time_mean": 1.8390665599999998
+      "train_time_mean": 2.275588395000001
     }
   ], 
   "missing_percentage": [
@@ -46,7 +46,7 @@ Diagnostics Summary
       "percentage": 0.0
     }
   ], 
-  "outdated_packages": "Red = unavailable/outdated/out of version specifier\nGreen = updatable\n+-----------------+-----------+--------+--------+\n| Name            | Installed | Wanted | Latest |\n+-----------------+-----------+--------+--------+\n| click           | 8.0.1     | 7.1.2  | 8.0.3  |\n| cycler          | 0.10.0    | 0.10.0 | 0.11.0 |\n| Flask           | 2.0.2     | 1.1.2  | 2.0.2  |\n| gunicorn        | None      | 20.0.4 | 20.1.0 |\n| itsdangerous    | 2.0.1     | 1.1.0  | 2.0.1  |\n| Jinja2          | 3.0.1     | 2.11.3 | 3.0.3  |\n| joblib          | 1.0.1     | 1.0.1  | 1.1.0  |\n| kiwisolver      | 1.3.1     | 1.3.1  | 1.3.2  |\n| MarkupSafe      | 2.0.1     | 1.1.1  | 2.0.1  |\n| matplotlib      | 3.4.2     | 3.3.4  | 3.5.0  |\n| numpy           | 1.21.1    | 1.20.1 | 1.21.4 |\n| pandas          | 1.2.4     | 1.2.2  | 1.3.4  |\n| Pillow          | 8.3.1     | 8.1.0  | 8.4.0  |\n| pyparsing       | 2.4.7     | 2.4.7  | 3.0.6  |\n| python-dateutil | 2.8.2     | 2.8.1  | 2.8.2  |\n| pytz            | 2021.1    | 2021.1 | 2021.3 |\n| scikit-learn    | 1.0.1     | 0.24.1 | 1.0.1  |\n| scipy           | 1.7.1     | 1.6.1  | 1.7.3  |\n| seaborn         | 0.11.1    | 0.11.1 | 0.11.2 |\n| six             | 1.16.0    | 1.15.0 | 1.16.0 |\n| threadpoolctl   | 2.2.0     | 2.1.0  | 3.0.0  |\n| Werkzeug        | 2.0.1     | 1.0.1  | 2.0.2  |\n+-----------------+-----------+--------+--------+\n"
+  "outdated_packages": "Red = unavailable/outdated/out of version specifier\nGreen = updatable\n+-----------------+-----------+--------+--------+\n| Name            | Installed | Wanted | Latest |\n+-----------------+-----------+--------+--------+\n| click           | 7.1.2     | 7.1.2  | 8.0.3  |\n| cycler          | 0.10.0    | 0.10.0 | 0.11.0 |\n| Flask           | 1.0.2     | 1.1.2  | 2.0.2  |\n| gunicorn        | 19.9.0    | 20.0.4 | 20.1.0 |\n| itsdangerous    | 1.1.0     | 1.1.0  | 2.0.1  |\n| Jinja2          | 2.11.3    | 2.11.3 | 3.0.3  |\n| joblib          | 0.15.1    | 1.0.1  | 1.1.0  |\n| kiwisolver      | 1.2.0     | 1.3.1  | 1.3.2  |\n| MarkupSafe      | 1.1.1     | 1.1.1  | 2.0.1  |\n| numpy           | 1.18.5    | 1.21.4 | 1.21.4 |\n| Pillow          | 7.1.2     | 8.1.0  | 8.4.0  |\n| pyparsing       | 2.4.7     | 2.4.7  | 3.0.6  |\n| python-dateutil | 2.8.1     | 2.8.1  | 2.8.2  |\n| pytz            | 2020.1    | 2021.1 | 2021.3 |\n| scipy           | 1.7.1     | 1.6.1  | 1.7.3  |\n| six             | 1.16.0    | 1.15.0 | 1.16.0 |\n| scikit-learn    | 0.23.1    | 1.0.1  | 1.0.1  |\n| threadpoolctl   | 2.1.0     | 2.1.0  | 3.0.0  |\n| Werkzeug        | 1.0.1     | 1.0.1  | 2.0.2  |\n+-----------------+-----------+--------+--------+\n"
 }
 
 
@@ -62,4 +62,4 @@ Model Predictions
 ]
 
 Model Score
-f1 score = 0.5714285714285715
+f1 score = 0.5714285714285715
