@@ -14,7 +14,7 @@ import subprocess
 import numpy as np
 import pandas as pd
 
-from config import DATA_PATH, TEST_DATA_PATH, MODEL_PATH
+from config import DATA_PATH, TEST_DATA_PATH, PROD_DEPLOYMENT_PATH
 
 logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
@@ -33,7 +33,7 @@ def model_predictions(X_df):
     model = pickle.load(
         open(
             os.path.join(
-                MODEL_PATH,
+                PROD_DEPLOYMENT_PATH,
                 'trainedmodel.pkl'),
             'rb'))
 
@@ -56,16 +56,15 @@ def dataframe_summary():
     data_df = data_df.select_dtypes('number')
 
     logging.info("Calculating statistics for data")
-    statistics_list = []
+    statistics_dict = {}
     for col in data_df.columns:
         mean = data_df[col].mean()
         median = data_df[col].median()
         std = data_df[col].std()
 
-        statistics_list.append(
-            {'name': col, 'mean': mean, 'median': median, 'std': std})
-
-    return statistics_list
+        statistics_dict[col] = {'mean': mean, 'median': median, 'std': std}
+        
+    return statistics_dict
 
 
 def missing_percentage():
@@ -78,11 +77,11 @@ def missing_percentage():
     """
     logging.info("Loading and preparing finaldata.csv")
     data_df = pd.read_csv(os.path.join(DATA_PATH, 'finaldata.csv'))
-    data_df = data_df.drop(['corporation', 'exited'], axis=1)
+    # data_df = data_df.drop(['corporation', 'exited'], axis=1)
 
     logging.info("Calculating missing data percentage")
-    missing_list = [{'name': col, 'percentage': perc} for col, perc in zip(
-        data_df.columns, data_df.isna().sum() / data_df.shape[0] * 100)]
+    missing_list = {col: {'percentage': perc} for col, perc in zip(
+        data_df.columns, data_df.isna().sum() / data_df.shape[0] * 100)}
 
     return missing_list
 
@@ -95,7 +94,7 @@ def _ingestion_timing():
         float: running time
     """
     starttime = timeit.default_timer()
-    os.system('python ingestion.py')
+    _ = subprocess.run(['python', 'ingestion.py'], capture_output=True)
     timing = timeit.default_timer() - starttime
     return timing
 
@@ -108,7 +107,7 @@ def _training_timing():
         float: running time
     """
     starttime = timeit.default_timer()
-    os.system('python training.py')
+    _ = subprocess.run(['python', 'training.py'], capture_output=True)
     timing = timeit.default_timer() - starttime
     return timing
 
@@ -126,14 +125,12 @@ def execution_time():
     for _ in range(20):
         time = _ingestion_timing()
         ingestion_time.append(time)
-    logging.info(f"Mean time: {np.mean(ingestion_time)}")
 
     logging.info("Calculating time for training.py")
     training_time = []
     for _ in range(20):
         time = _training_timing()
         training_time.append(time)
-    logging.info(f"Mean time: {np.mean(training_time)}")
 
     ret_list = [
         {'ingest_time_mean': np.mean(ingestion_time)},
@@ -157,8 +154,14 @@ def outdated_packages_list():
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         encoding='utf-8')
+    
+    dep = dependencies.stdout    
+    dep = dep.translate(str.maketrans('', '', ' \t\r'))
+    dep = dep.split('\n')
+    dep = [dep[3]] + dep[5:-3]
+    dep = [s.split('|')[1:-1] for s in dep]
 
-    return dependencies.stdout
+    return dep
 
 
 if __name__ == '__main__':
@@ -179,4 +182,7 @@ if __name__ == '__main__':
     print("Execution time")
     print(json.dumps(execution_time(), indent=4), end='\n\n')
 
-    print(outdated_packages_list())
+    print("Outdated Packages")
+    dependencies = outdated_packages_list()
+    for row in dependencies:
+        print('{:<20}{:<10}{:<10}{:<10}'.format(*row))

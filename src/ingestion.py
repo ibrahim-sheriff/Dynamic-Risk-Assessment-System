@@ -29,7 +29,9 @@ def merge_multiple_dataframe():
         file_path = os.path.join(INPUT_FOLDER_PATH, file)
         df_tmp = pd.read_csv(file_path)
 
+        file = os.path.join(file_path.split(os.path.sep)[-3:])
         file_names.append(file)
+        
         df = df.append(df_tmp, ignore_index=True)
 
     logging.info("Dropping duplicates")
@@ -37,7 +39,7 @@ def merge_multiple_dataframe():
 
     logging.info("Saving ingested metadata")
     with open(os.path.join(DATA_PATH, 'ingestedfiles.txt'), "w") as file:
-        file.write(f"Ingestion date: {datetime.now()}\n")
+        file.write(f"Ingestion date: {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}\n")
         file.write("\n".join(file_names))
 
     logging.info("Saving ingested data")
