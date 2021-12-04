@@ -63,7 +63,7 @@ def dataframe_summary():
         std = data_df[col].std()
 
         statistics_dict[col] = {'mean': mean, 'median': median, 'std': std}
-        
+
     return statistics_dict
 
 
@@ -154,8 +154,8 @@ def outdated_packages_list():
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         encoding='utf-8')
-    
-    dep = dependencies.stdout    
+
+    dep = dependencies.stdout
     dep = dep.translate(str.maketrans('', '', ' \t\r'))
     dep = dep.split('\n')
     dep = [dep[3]] + dep[5:-3]

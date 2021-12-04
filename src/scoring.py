@@ -10,7 +10,7 @@ import logging
 import pandas as pd
 from sklearn.metrics import f1_score
 
-from config import TEST_DATA_PATH, MODEL_PATH
+from config import MODEL_PATH, TEST_DATA_PATH
 
 logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 

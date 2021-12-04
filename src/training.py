@@ -10,7 +10,7 @@ import logging
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
 
-from config import DATA_PATH, MODEL_PATH
+from config import MODEL_PATH, DATA_PATH
 
 logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 

@@ -6,7 +6,6 @@ import json
 with open('../config.json', 'r') as file:
     CONFIG = json.load(file)
 
-
 INPUT_FOLDER_PATH = os.path.join(
     os.path.abspath('../'),
     'data',

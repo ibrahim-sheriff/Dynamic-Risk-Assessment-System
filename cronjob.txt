@@ -1,0 +1,1 @@
+10 * * * * python src/app.py && python src/fullprocess.py
