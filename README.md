@@ -100,32 +100,40 @@ pip install -r requirements.txt
 cd src
 python ingestion.py
 ```
-Artifacts output: 
-    <br> ```data/ingesteddata/finaldata.csv```
-    <br> ```data/ingesteddata/ingestedfiles.txt```
+Artifacts output:
+```
+data/ingesteddata/finaldata.csv
+data/ingesteddata/ingestedfiles.txt
+```
 
 ### 3- Model training
 ```python
 python training.py
 ```
 Artifacts output:
-    <br> ```models/practicemodels/trainedmodel.pkl``` 
+```
+models/practicemodels/trainedmodel.pkl
+```
 
 ###  4- Model scoring 
 ```python
 python scoring.py
 ```
 Artifacts output: 
-    <br> ```models/practicemodels/latestscore.txt``` 
+```
+models/practicemodels/latestscore.txt
+``` 
 
 ### 5- Model deployment
 ```python
 python deployment.py
 ```
 Artifacts output:
-    <br> ```models/prod_deployment_path/ingestedfiles.txt```
-    <br> ```models/prod_deployment_path/trainedmodel.pkl``` 
-    <br> ```models/prod_deployment_path/latestscore.txt``` 
+```
+models/prod_deployment_path/ingestedfiles.txt
+models/prod_deployment_path/trainedmodel.pkl
+models/prod_deployment_path/latestscore.txt
+``` 
 
 ### 6- Run diagnostics
 ```python
@@ -137,8 +145,10 @@ python diagnostics.py
 python reporting.py
 ```
 Artifacts output:
-    <br> ```models/practicemodels/confusionmatrix.png```
-    <br> ```models/practicemodels/summary_report.pdf```
+```
+models/practicemodels/confusionmatrix.png
+models/practicemodels/summary_report.pdf
+```
 
 ### 8- Run Flask App
 ```python
@@ -150,7 +160,9 @@ python app.py
 python apicalls.py
 ```
 Artifacts output:
-    <br> ```models/practicemodels/apireturns.txt```
+```
+models/practicemodels/apireturns.txt
+```
 
 ### 11- Edit config.json file to use production data
 
