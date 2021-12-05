@@ -1,8 +1,4 @@
-# Dynamic-Risk-Assessment-System
-The fourth project in the Machine Learning DevOps Nanodegree by Udacity.
-
-
-# Dynamic-Risk-Assessment-System
+# Dynamic Risk Assessment System
 The fourth project for [ML DevOps Engineer Nanodegree](https://www.udacity.com/course/machine-learning-dev-ops-engineer-nanodegree--nd0821) by Udacity.
 
 ## Description
